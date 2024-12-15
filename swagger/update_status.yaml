@@ -1,0 +1,67 @@
+tags:
+  - Customers
+summary: Update customer credit status
+description: Update the credit status of a customer (e.g., RKI, Godkendt).
+parameters:
+  - name: kunde_id
+    in: path
+    required: true
+    schema:
+      type: integer
+      example: 1
+    description: Unique ID of the customer to update.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          kreditvurdering_status:
+            type: string
+            enum:
+              - RKI
+              - Godkendt
+            example: "RKI"
+            description: New credit status for the customer.
+responses:
+  200:
+    description: Credit status updated successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Credit status updated
+  400:
+    description: Invalid input or credit status
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: Invalid credit status
+  404:
+    description: Customer not found
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: Customer not found
+  500:
+    description: Server error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: An error occurred

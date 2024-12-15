@@ -1,0 +1,65 @@
+tags:
+  - Customers
+summary: Create a new customer
+description: Endpoint to create a new customer in the system.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          navn:
+            type: string
+            example: "John Doe"
+            description: Customer name.
+          adresse:
+            type: string
+            example: "123 Main St, Copenhagen"
+            description: Customer address.
+          telefon:
+            type: integer
+            example: 12345678
+            description: Customer phone number.
+          email:
+            type: string
+            example: "johndoe@example.com"
+            description: Customer email address.
+          cprnummer:
+            type: string
+            example: "123456-7890"
+            description: Customer CPR number.
+responses:
+  201:
+    description: Customer created successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Customer created
+            kunde_id:
+              type: integer
+              example: 1
+  400:
+    description: Missing or invalid input
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: Missing required fields
+  500:
+    description: Server error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: An error occurred

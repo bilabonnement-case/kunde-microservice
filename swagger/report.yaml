@@ -1,0 +1,31 @@
+tags:
+  - Customers
+summary: Generate customer report
+description: Provides a summary of customers, including counts for RKI and approved customers.
+responses:
+  200:
+    description: Customer report generated successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            TotalCustomers:
+              type: integer
+              example: 100
+            RKICustomers:
+              type: integer
+              example: 10
+            ApprovedCustomers:
+              type: integer
+              example: 90
+  500:
+    description: Server error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: An error occurred
