@@ -19,7 +19,7 @@ app.config['SWAGGER'] = {
 swagger = Swagger(app)
 
 # Database Configuration
-DATABASE = "kunde-database.db"
+DATABASE = "/app/data/kunde-database.db"
 
 
 def init_db():
