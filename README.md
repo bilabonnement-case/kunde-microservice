@@ -1,4 +1,4 @@
-# Abonnement-Service
+# Kunde-Service
 
 Kunde-Service is a Flask-based microservice that handles customer management. It includes endpoints for creating customers, retrieving customer details, updating credit status, and generating customer reports. The service uses SQLite for database management and provides API documentation via Swagger.
 
